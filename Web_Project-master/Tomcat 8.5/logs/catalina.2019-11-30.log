@@ -1,0 +1,77 @@
+30-Nov-2019 17:48:11.386 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/8.5.49
+30-Nov-2019 17:48:11.627 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 17 2019 18:45:30 UTC
+30-Nov-2019 17:48:11.628 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 8.5.49.0
+30-Nov-2019 17:48:11.628 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+30-Nov-2019 17:48:11.629 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+30-Nov-2019 17:48:11.629 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+30-Nov-2019 17:48:11.630 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Java\jdk1.8.0_202\jre
+30-Nov-2019 17:48:11.630 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_202-b08
+30-Nov-2019 17:48:11.643 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+30-Nov-2019 17:48:11.644 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5
+30-Nov-2019 17:48:11.645 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5
+30-Nov-2019 17:48:11.648 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5\conf\logging.properties
+30-Nov-2019 17:48:11.651 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+30-Nov-2019 17:48:11.652 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dhttp.nonProxyHosts=localhost|127.0.0.1|pc-casa
+30-Nov-2019 17:48:11.653 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+30-Nov-2019 17:48:11.655 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+30-Nov-2019 17:48:11.655 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+30-Nov-2019 17:48:11.656 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5
+30-Nov-2019 17:48:11.656 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5
+30-Nov-2019 17:48:11.657 INFORMAÇÕES [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5\temp
+30-Nov-2019 17:48:11.657 INFORMAÇÕES [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+30-Nov-2019 17:48:11.658 INFORMAÇÕES [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+30-Nov-2019 17:48:11.658 INFORMAÇÕES [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+30-Nov-2019 17:48:11.716 INFORMAÇÕES [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+30-Nov-2019 17:48:17.461 INFORMAÇÕES [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8081"]
+30-Nov-2019 17:48:22.015 INFORMAÇÕES [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+30-Nov-2019 17:48:22.131 INFORMAÇÕES [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+30-Nov-2019 17:48:22.139 GRAVE [main] org.apache.catalina.core.StandardService.initInternal Failed to initialize connector [Connector[AJP/1.3-8009]]
+	org.apache.catalina.LifecycleException: Protocol handler initialization failed
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:995)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+		at org.apache.catalina.core.StandardService.initInternal(StandardService.java:552)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+		at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:848)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:136)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:639)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:662)
+		at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+		at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+		at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+		at java.lang.reflect.Method.invoke(Method.java:498)
+		at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:303)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:473)
+	Caused by: java.net.BindException: Address already in use: bind
+		at sun.nio.ch.Net.bind0(Native Method)
+		at sun.nio.ch.Net.bind(Net.java:433)
+		at sun.nio.ch.Net.bind(Net.java:425)
+		at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+		at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+		at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:219)
+		at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:1118)
+		at org.apache.tomcat.util.net.AbstractJsseEndpoint.init(AbstractJsseEndpoint.java:223)
+		at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:581)
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:993)
+		... 13 more
+30-Nov-2019 17:48:22.145 INFORMAÇÕES [main] org.apache.catalina.startup.Catalina.load Initialization processed in 16932 ms
+30-Nov-2019 17:48:23.125 INFORMAÇÕES [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+30-Nov-2019 17:48:23.128 INFORMAÇÕES [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.49
+30-Nov-2019 17:48:23.250 INFORMAÇÕES [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5\webapps\docs]
+30-Nov-2019 17:48:28.130 INFORMAÇÕES [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5\webapps\docs] has finished in [4,875] ms
+30-Nov-2019 17:48:28.132 INFORMAÇÕES [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5\webapps\examples]
+30-Nov-2019 17:48:38.839 INFORMAÇÕES [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5\webapps\examples] has finished in [10,707] ms
+30-Nov-2019 17:48:38.842 INFORMAÇÕES [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5\webapps\host-manager]
+30-Nov-2019 17:48:39.477 INFORMAÇÕES [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5\webapps\host-manager] has finished in [636] ms
+30-Nov-2019 17:48:39.480 INFORMAÇÕES [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5\webapps\manager]
+30-Nov-2019 17:48:40.206 INFORMAÇÕES [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5\webapps\manager] has finished in [727] ms
+30-Nov-2019 17:48:40.220 INFORMAÇÕES [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5\webapps\ROOT]
+30-Nov-2019 17:48:40.672 INFORMAÇÕES [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5\webapps\ROOT] has finished in [414] ms
+30-Nov-2019 17:48:40.786 INFORMAÇÕES [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8081"]
+30-Nov-2019 17:48:40.988 INFORMAÇÕES [main] org.apache.catalina.startup.Catalina.start Server startup in 18841 ms
+30-Nov-2019 17:49:25.537 INFORMAÇÕES [http-nio-8081-exec-8] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5\conf\Catalina\localhost\Ponto_Eletronico.xml]
+30-Nov-2019 17:49:26.344 INFORMAÇÕES [http-nio-8081-exec-8] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5\conf\Catalina\localhost\Ponto_Eletronico.xml] has finished in [806] ms
+30-Nov-2019 17:49:26.382 INFORMAÇÕES [http-nio-8081-exec-4] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/Ponto_Eletronico]] after start() had already been called. The second call will be ignored.
+30-Nov-2019 18:34:03.164 INFORMAÇÕES [http-nio-8081-exec-7] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5\conf\Catalina\localhost\ecommerce.xml]
+30-Nov-2019 18:34:08.634 INFORMAÇÕES [http-nio-8081-exec-7] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Nov-2019 18:34:08.942 INFORMAÇÕES [http-nio-8081-exec-7] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\Users\Paulo\Documents\Programação Web\Web_Project\Web_Project-master\Tomcat 8.5\conf\Catalina\localhost\ecommerce.xml] has finished in [5,778] ms
+30-Nov-2019 18:34:09.081 INFORMAÇÕES [http-nio-8081-exec-2] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/ecommerce]] after start() had already been called. The second call will be ignored.

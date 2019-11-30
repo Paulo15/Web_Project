@@ -1,0 +1,3 @@
+Ponto_Eletronico/nbproject/private/private.properties
+
+Ponto_Eletronico/nbproject/project.xml
