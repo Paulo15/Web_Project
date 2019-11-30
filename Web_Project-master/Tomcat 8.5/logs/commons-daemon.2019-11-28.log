@@ -1,0 +1,41 @@
+[2019-11-28 23:14:08] [info]  [ 8008] Apache Commons Daemon procrun (1.2.2.0 64-bit) started.
+[2019-11-28 23:14:08] [info]  [ 8008] Installing service 'Tomcat8' name 'Apache Tomcat 8.5 Tomcat8'.
+[2019-11-28 23:14:08] [info]  [ 8008] Service 'Tomcat8' installed.
+[2019-11-28 23:14:08] [info]  [ 8008] Apache Commons Daemon procrun finished.
+[2019-11-28 23:14:10] [info]  [ 1840] Apache Commons Daemon procrun (1.2.2.0 64-bit) started.
+[2019-11-28 23:14:10] [info]  [ 1840] Updating service...
+[2019-11-28 23:14:11] [info]  [ 1840] Updated service 'Tomcat8'.
+[2019-11-28 23:14:11] [info]  [ 1840] Finished updating service 'Tomcat8'.
+[2019-11-28 23:14:11] [info]  [ 1840] Apache Commons Daemon procrun finished.
+[2019-11-28 23:14:32] [info]  [10808] Apache Commons Daemon procrun (1.2.2.0 64-bit) started.
+[2019-11-28 23:14:32] [info]  [10808] Updating service...
+[2019-11-28 23:14:32] [info]  [10808] Updated service 'Tomcat8'.
+[2019-11-28 23:14:33] [info]  [10808] Finished updating service 'Tomcat8'.
+[2019-11-28 23:14:33] [info]  [10808] Apache Commons Daemon procrun finished.
+[2019-11-28 23:14:34] [info]  [15548] Apache Commons Daemon procrun (1.2.2.0 64-bit) started.
+[2019-11-28 23:14:34] [info]  [15548] Updating service...
+[2019-11-28 23:14:34] [info]  [15548] Updated service 'Tomcat8'.
+[2019-11-28 23:14:34] [info]  [15548] Finished updating service 'Tomcat8'.
+[2019-11-28 23:14:35] [info]  [15548] Apache Commons Daemon procrun finished.
+[2019-11-28 23:14:35] [info]  [10844] Apache Commons Daemon procrun (1.2.2.0 64-bit) started.
+[2019-11-28 23:14:36] [info]  [10844] Updating service...
+[2019-11-28 23:14:36] [info]  [10844] Updated service 'Tomcat8'.
+[2019-11-28 23:14:36] [info]  [10844] Finished updating service 'Tomcat8'.
+[2019-11-28 23:14:36] [info]  [10844] Apache Commons Daemon procrun finished.
+[2019-11-28 23:14:37] [info]  [16884] Apache Commons Daemon procrun (1.2.2.0 64-bit) started.
+[2019-11-28 23:14:37] [info]  [16884] Updating service...
+[2019-11-28 23:14:37] [info]  [16884] Updated service 'Tomcat8'.
+[2019-11-28 23:14:37] [info]  [16884] Finished updating service 'Tomcat8'.
+[2019-11-28 23:14:37] [info]  [16884] Apache Commons Daemon procrun finished.
+[2019-11-28 23:14:53] [info]  [18004] Apache Commons Daemon procrun (1.2.2.0 64-bit) started.
+[2019-11-28 23:14:53] [info]  [18004] Running Service 'Tomcat8'...
+[2019-11-28 23:14:53] [info]  [11352] Starting service...
+[2019-11-28 23:15:02] [info]  [11352] Service started in 8482 milliseconds.
+[2019-11-28 23:23:40] [info]  [ 2232] Apache Commons Daemon procrun (1.2.2.0 64-bit) started.
+[2019-11-28 23:23:40] [info]  [ 2232] Debugging 'Tomcat8' service...
+[2019-11-28 23:23:40] [info]  [ 2232] Starting service...
+[2019-11-28 23:23:42] [info]  [ 2232] Service started in 2173 milliseconds.
+[2019-11-28 23:24:48] [info]  [16428] Console CTRL+CLOSE event signaled.
+[2019-11-28 23:24:48] [info]  [16428] Stopping service...
+[2019-11-28 23:24:49] [info]  [16428] Service stop thread completed.
+[2019-11-28 23:24:49] [info]  [10180] Console CTRL+BREAK event signaled.
