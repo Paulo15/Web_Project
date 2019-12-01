@@ -9,19 +9,18 @@ package logic;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 import model.User;
-//import sqlconnection.SQLConnection;
 
-/**
- *
- * @author francisco.massetto
- */
+
 public class LoginServlet extends HttpServlet {
 
     
@@ -37,7 +36,12 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //SQLConnection conn = new SQLConnection();
+        try {
+            SQLConnection con = new SQLConnection();
+            JOptionPane.showMessageDialog(null, "Conexão Ok!");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Deu Ruim");
+        }
         
     }
 
