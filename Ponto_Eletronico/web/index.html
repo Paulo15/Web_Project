@@ -6,16 +6,34 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        
+        <link rel="stylesheet" href="css/style_home.css" type="text/css">
+
+
+        <title>Sistema de ponto eletrônico</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <div class ="barra"> 
+           Ponto Eletrônico
+           <div class="image_back">  
+            </div>
+        </div> 
+            
+        
         <form action="LoginController" method="POST">
-            Login <input type="text" name="txtLogin"/> <br/>
-            Senha <input type="password" name="txtSenha"/> <br/>
-            <input type="Submit" value="Enviar Dados"/>
+            <div class = "form_login">
+                <div class = "form_login2">
+                    
+                    Login  <input type="text" name="txtLogin"/> <br/>
+                    Senha <input type="password" name="txtSenha"/> <br/>
+                    
+                    <input type="Submit" value="Enviar Dados"/>
+                </div>
+            </div>
         </form>
+        
+        
     </body>
 </html>
-
