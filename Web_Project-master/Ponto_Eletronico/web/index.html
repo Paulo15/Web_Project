@@ -6,7 +6,9 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <link rel="stylesheet" href="style.css" type="text/css"/>
+        
+        <link rel="stylesheet" href="css/style_home.css" type="text/css">
+
 
         <title>Sistema de ponto eletrônico</title>
         <meta charset="UTF-8">
@@ -15,14 +17,18 @@ and open the template in the editor.
     <body>
         <div class ="barra"> 
            Ponto Eletrônico
+           <div class="image_back">  
+            </div>
         </div> 
-        
+            
         
         <form action="LoginController" method="POST">
             <div class = "form_login">
-                <div class = "form_login">
-                    Login <input type="text" name="txtLogin"/> <br/>
+                <div class = "form_login2">
+                    
+                    Login  <input type="text" name="txtLogin"/> <br/>
                     Senha <input type="password" name="txtSenha"/> <br/>
+                    
                     <input type="Submit" value="Enviar Dados"/>
                 </div>
             </div>
