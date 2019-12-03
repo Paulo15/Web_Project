@@ -6,7 +6,11 @@ package logic;
  * and open the template in the editor.
  */
 
-
+import dao.GenericDAO;
+import dao.SolicitacaoDAO;
+import dao.UserDAO;
+import model.Solicitacao;
+import model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -34,10 +38,24 @@ public class LoginServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
+    
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             SQLConnection con = new SQLConnection();
+            String Usuario = request.getParameter("txtLogin");
+            String Senha = request.getParameter("txtSenha");
+            
+            User UserLogin = new User();
+            UserDAO dao = new UserDAO();
+            
+            UserLogin.setLogin(Usuario);
+            UserLogin.setPassword(Senha);
+          //  dao.getUser(UserLogin);
+            
+           
+           
             JOptionPane.showMessageDialog(null, "Conexão Ok!");
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Deu Ruim");
