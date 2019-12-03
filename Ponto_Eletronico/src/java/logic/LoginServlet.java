@@ -38,12 +38,11 @@ public class LoginServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    
-    
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            SQLConnection con = new SQLConnection();
+
+            Conexao con = new Conexao();
             String Usuario = request.getParameter("txtLogin");
             String Senha = request.getParameter("txtSenha");
             
@@ -54,14 +53,9 @@ public class LoginServlet extends HttpServlet {
             UserLogin.setPassword(Senha);
           //  dao.getUser(UserLogin);
             
-           
-           
             JOptionPane.showMessageDialog(null, "Conexão Ok!");
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Deu Ruim");
         }
-        
     }
-
-  
 }
