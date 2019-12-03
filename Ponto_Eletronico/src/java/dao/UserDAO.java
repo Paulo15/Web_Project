@@ -7,8 +7,11 @@ package dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+import model.User;
+import logic.Conexao;
 
 /**
  *
@@ -79,4 +82,28 @@ public class UserDAO implements GenericDAO {
         return null;
     }
     
+    public Boolean getUser(User user) throws SQLException{
+        boolean verificaUsuario = false;
+        Conexao con = new Conexao();
+           String SQL = "SELECT [ID]\n" +
+                    "      ,[NAME]\n" +
+                    "      ,[EMAIL]\n" +
+                    "      ,[PASSWORD]\n" +
+                    "  FROM [dbo].[USUARIO]\n" +
+                    "  WHERE LOGIN = ? AND PASSWORD = ?\n" +
+                    "GO";
+            PreparedStatement stm = con.getSqlConnection().prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            stm.setString(1, user.getLogin());
+            stm.setString(2, user.getPassword());
+            
+            int result = stm.executeUpdate();
+            if (result == 0) {
+                throw new RuntimeException("ERRO, SENHA OU USUARIO INVALIDO");
+            }
+            ResultSet rs = stm.getGeneratedKeys();
+            rs.close();
+            stm.close();
+        
+        return verificaUsuario;
+    }
 }

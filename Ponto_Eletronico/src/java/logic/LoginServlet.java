@@ -37,13 +37,12 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            SQLConnection con = new SQLConnection();
+            Conexao con = new Conexao();
+            con.getSqlConnection();
+            
             JOptionPane.showMessageDialog(null, "Conexão Ok!");
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Deu Ruim");
         }
-        
     }
-
-  
 }
