@@ -100,8 +100,10 @@ public class UserDAO implements GenericDAO {
             if (result == 0) {
                 throw new RuntimeException("ERRO, SENHA OU USUARIO INVALIDO");
             }
-            ResultSet rs = stm.getGeneratedKeys();
-            rs.close();
+            
+            if(result >1){
+                verificaUsuario = true;
+            }
             stm.close();
         
         return verificaUsuario;

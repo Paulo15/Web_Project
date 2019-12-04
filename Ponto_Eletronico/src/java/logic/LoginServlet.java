@@ -42,7 +42,8 @@ public class LoginServlet extends HttpServlet {
             
             JOptionPane.showMessageDialog(null, "Conexão Ok!");
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Deu Ruim");
+            System.out.println("Deu ruim");
+            ex.printStackTrace();
         }
     }
 }
