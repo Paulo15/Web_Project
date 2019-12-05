@@ -6,32 +6,33 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        
-        <link rel="stylesheet" href="css/style_home.css" type="text/css">
-
-
-        <title>Sistema de ponto eletrônico</title>
+        <title>Sistema de Ponto Eletrônico</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div class ="barra"> 
-           Ponto Eletrônico
-           <div class="image_back">  
-            </div>
-        </div> 
-            
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
-        <form action="LoginController" method="POST">
-            <div class = "form_login">
-                <div class = "form_login2">
-                    
-                    Login  <input type="text" name="txtLogin"/> <br/>
-                    Senha <input type="password" name="txtSenha"/> <br/>
-                    
-                    <input type="Submit" value="Enviar Dados"/>
-                </div>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/login.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <nav class="site-header sticky-top py-1">
+            <div class="container d-flex flex-column flex-md-row">
+                <img class="mb-4" src="https://majestadelogos.com/wp-content/uploads/2019/01/majestade-logos-logo-favicon.png" alt="50  " width="65" height="55">
+                <a class="py-2 d-none d-md-inline-block">Ponto Eletrônico </a>
+                
             </div>
+        </nav>
+        
+        <form class="form-signin">
+ 
+            <h1 class="h3 mb-3 font-weight-normal"> Faça Login</h1>
+            <label for="inputEmail" class="sr-only"> Endereço de Email </label>
+            <input type="email" id="txtLogin" class="form-control" placeholder="Seu Login" required autofocus>
+            <label for="inputPassword" class="sr-only"> Senha </label>
+            <input type="password" id="txtSenha" class="form-control" placeholder=" Sua Senha" required>
+            <button class="btn btn-lg btn-primary btn-block btn-login" type="submit" value="Enviar Dados">Login</button>
+            
+            
         </form>
     </body>
 </html>
