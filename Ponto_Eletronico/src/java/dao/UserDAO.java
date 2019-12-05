@@ -18,7 +18,7 @@ import logic.Conexao;
 
 /**
  *
- * @author Usuario
+ * @author felipe.correia
  */
 public class UserDAO implements GenericDAO {
 
@@ -69,9 +69,10 @@ public class UserDAO implements GenericDAO {
         return result;
     }
     
-    public List<User> getUser(User user) throws SQLException{
+    public User getUser(User user) throws SQLException{
         
         Conexao con = new Conexao();
+        User u = new User();
            String SQL = "SELECT [ID]\n" +
                     "      ,[NAME]\n" +
                     "      ,[EMAIL]\n" +
@@ -80,23 +81,21 @@ public class UserDAO implements GenericDAO {
                     "  FROM [dbo].[USUARIO]\n" +
                     "  WHERE LOGIN = ? AND PASSWORD = ?\n";
             PreparedStatement stm = con.getSqlConnection().prepareStatement(SQL);
-            stm.setString(1, user.getLogin());
-            stm.setString(2, user.getPassword());
+            stm.setString(1, user.getLogin().toString());
+            stm.setString(2, user.getPassword().toString());
             
             ResultSet rs = stm.executeQuery();
-            List<User> result = null;
-            result = new ArrayList<>();
+
             if (rs.next()){
-                User u = new User();
+
                 u.setEmail(rs.getString("EMAIL"));
                 u.setLogin(rs.getString("LOGIN"));
                 u.setName(rs.getString("NAME"));
-                result.add(u);
             }
             rs.close();
             stm.close();
         
-        return result;
+        return u;
     }
 
     @Override
