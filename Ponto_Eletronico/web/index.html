@@ -23,13 +23,13 @@ and open the template in the editor.
             </div>
         </nav>
         
-        <form class="form-signin">
+        <form class="form-signin" action="LoginController" method="POST">
  
             <h1 class="h3 mb-3 font-weight-normal"> Faça Login</h1>
             <label for="inputEmail" class="sr-only"> Endereço de Email </label>
-            <input type="email" id="txtLogin" class="form-control" placeholder="Seu Login" required autofocus>
+            <input type="email" id="txtLogin" name="txtLogin" class="form-control" placeholder="Seu Login" required autofocus>
             <label for="inputPassword" class="sr-only"> Senha </label>
-            <input type="password" id="txtSenha" class="form-control" placeholder=" Sua Senha" required>
+            <input type="password" id="txtSenha" name="txtSenha" class="form-control" placeholder=" Sua Senha" required>
             <button class="btn btn-lg btn-primary btn-block btn-login" type="submit" value="Enviar Dados">Login</button>
             
             

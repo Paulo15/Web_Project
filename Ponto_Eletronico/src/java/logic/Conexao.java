@@ -11,9 +11,9 @@ import java.util.logging.Logger;
 public class Conexao {
     
     private static final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    private static final String URL = "jdbc:sqlserver://localhost:1433/PROGWEB_PROJETO";
-    private static final String USER = "root";
-    private static final String PASS = "";
+    private static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=PROGWEB_PROJETO";
+    private static final String USER = "admin";
+    private static final String PASS = "admin123";
     
     
     public static Connection getSqlConnection(){

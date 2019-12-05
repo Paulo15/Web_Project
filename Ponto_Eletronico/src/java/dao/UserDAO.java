@@ -9,13 +9,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.User;
 import logic.Conexao;
 
 /**
  *
- * @author Usuario
+ * @author felipe.correia
  */
 public class UserDAO implements GenericDAO {
 
@@ -34,76 +37,69 @@ public class UserDAO implements GenericDAO {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public List<Object> read() {
+    
+    public List<User> getListUser(){
+        Conexao con = new Conexao();
+        List<User> result = null;
         String SQL = "USE [PROGWEB_PROJETO]\n" +
                         "GO\n" +
                         "\n" +
                         "SELECT [ID]\n" +
                         "      ,[NAME]\n" +
                         "      ,[EMAIL]\n" +
-                    "  FROM [dbo].[USUARIO]\n" +
-                    "GO\n" +
-                    "";
-            /*PreparedStatement stm = dataSource.getConnection().prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            stm.setString(1, c.getNome());
-            stm.setString(2, c.getEmail());
-            stm.setString(3, c.getSenha());
-            int result = stm.executeUpdate();
-            if (result == 0) {
-                throw new RuntimeException("Falha ao inserir - registros duplicados");
+                    "  FROM [dbo].[USUARIO]\n";
+        
+        try (PreparedStatement stm = con.getSqlConnection().prepareStatement(SQL)) {
+            ResultSet rs = stm.executeQuery();
+            result = null;
+            result = new ArrayList<>();
+            while (rs.next()){
+                User u = new User();
+                u.setEmail(rs.getString("EMAIL"));
+                u.setLogin(rs.getString("LOGIN"));
+                u.setName(rs.getString("NAME"));
+                result.add(u);
             }
-            ResultSet rs = stm.getGeneratedKeys();
-            if (rs.next()) {
-                c.setId(rs.getInt(1));
-                for (Endereco e : c.getEnderecos()) {
-                    e.setCliente(c);
-                    SQL = "INSERT INTO tblEndereco values (null, ?,?,?,?,?,?,?,?,?,?)";
-                    stm = dataSource.getConnection().prepareStatement(SQL);
-                    stm.setString(1,e.getTipoLogradouro());
-                    stm.setString(2,e.getLogradouro());
-                    stm.setString(3,e.getNumero());
-                    stm.setString(4,e.getComplemento());
-                    stm.setString(5,e.getBairro());
-                    stm.setString(6,e.getCidade());
-                    stm.setString(7,e.getEstado());
-                    stm.setString(8,e.getCep());
-                    stm.setInt(9, e.getTipo());
-                    stm.setInt(10, e.getCliente().getId());
-                    stm.executeUpdate();
-                }
-            }
-
             rs.close();
-            stm.close();
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
+            System.out.println("Deu ruim");
             ex.printStackTrace();
-        }*/
-        return null;
+        }
+        
+        return result;
     }
     
-    public Boolean getUser(User user) throws SQLException{
-        boolean verificaUsuario = false;
+    public User getUser(User user) throws SQLException{
+        
         Conexao con = new Conexao();
+        User u = new User();
            String SQL = "SELECT [ID]\n" +
                     "      ,[NAME]\n" +
                     "      ,[EMAIL]\n" +
+                    "      ,[LOGIN]\n" +
                     "      ,[PASSWORD]\n" +
                     "  FROM [dbo].[USUARIO]\n" +
-                    "  WHERE LOGIN = ? AND PASSWORD = ?\n" +
-                    "GO";
-            PreparedStatement stm = con.getSqlConnection().prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            stm.setString(1, user.getLogin());
-            stm.setString(2, user.getPassword());
+                    "  WHERE LOGIN = ? AND PASSWORD = ?\n";
+            PreparedStatement stm = con.getSqlConnection().prepareStatement(SQL);
+            stm.setString(1, user.getLogin().toString());
+            stm.setString(2, user.getPassword().toString());
             
-            int result = stm.executeUpdate();
-            if (result == 0) {
-                throw new RuntimeException("ERRO, SENHA OU USUARIO INVALIDO");
+            ResultSet rs = stm.executeQuery();
+
+            if (rs.next()){
+
+                u.setEmail(rs.getString("EMAIL"));
+                u.setLogin(rs.getString("LOGIN"));
+                u.setName(rs.getString("NAME"));
             }
-            ResultSet rs = stm.getGeneratedKeys();
             rs.close();
             stm.close();
         
-        return verificaUsuario;
+        return u;
+    }
+
+    @Override
+    public List<Object> read() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

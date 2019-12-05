@@ -51,11 +51,13 @@ public class LoginServlet extends HttpServlet {
             
             UserLogin.setLogin(Usuario);
             UserLogin.setPassword(Senha);
-          //  dao.getUser(UserLogin);
+            User result = new User();
+            result = (User) dao.getUser(UserLogin);
             
-            JOptionPane.showMessageDialog(null, "Conexão Ok!");
+            String Teste = "teste";
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Deu Ruim");
+            System.out.println("Deu ruim");
+            ex.printStackTrace();
         }
     }
 }
