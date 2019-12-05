@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Sistema de Ponto Eletrônico</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/form.css" rel="stylesheet">
+    </head>
+    
+    <body>
+        <nav class="site-header sticky-top py-1 responsive">
+            <div class="container d-flex flex-column flex-md-row responsive">
+                <img class="responsive" src="https://majestadelogos.com/wp-content/uploads/2019/01/majestade-logos-logo-favicon.png" >
+                <a class="py-2 d-none d-md-inline-block responsive">Ponto Eletrônico </a>
+                
+            </div>
+        </nav>
+        
+        <div class="container">
+            <div class="py-5 text-center">
+               <img class="responsive" src="https://majestadelogos.com/wp-content/uploads/2019/01/majestade-logos-logo-favicon.png" >
+               <h2>Formulário de Solicitação</h2>
+               <p class="lead">Preencha os dados para enviar a solicitação ao seu gestor.</p>
+            </div>
+            
+        </div>
+        
+        
+        <div class='container'>
+        <div class="col-md-8 order-md-1 py-2 ">
+            <h4 class="mb-3">Dados Pessoais</h4>
+            <form class="needs-validation" novalidate>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="primeiroNome">Nome</label>
+                        <input type="text" class="form-control" id="primeiroNome" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                            É obrigatório inserir um nome válido. 
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="sobrenome">Sobrenome</label>
+                        <input type="text" class="form-control" id="sobrenome" placeholder="" value="" required>
+                        <div class="invalid-feedback">
+                            É obrigatório inser um sobrenome válido
+                        </div>
+                    </div>
+                </div>
+                
+               
+                
+                <h4 class="mb-3">Tipo de Solicitação</h4>
+                
+                <div class="d-block my-3">  
+                    <div class="custom-control custom-radio">
+                        <input id="ferias" name="solferias" type="radio" class="custom-control-input" required>
+                        <label class="custom-control-label"for="ferias">Solicitação Férias</label>
+                        <hr class="col-md-8 order-md-1">
+                        <label for="qtddias">Qtd. Dias</label>
+                        <input  id="qtddias" type="number" required>
+                        <label for="datainicial">Data Início </label>
+                        <input id="datainicial" type="date" required>
+                        <label for="datafinal">Data Final </label>
+                        <input id="datafinal" type="date" required>
+                    </div>
+                    
+                    <hr class="mb-4">
+                     <div class="custom-control custom-radio">
+                        <input id="ponto" name="solponto" type="radio" class="custom-control-input" required>
+                        <label class="custom-control-label" for="ponto">Ajuste Ponto Eletrônico</label>
+                        <hr class="col-md-8 order-md-1">
+                        <label for="hent">Hora Entrada: </label>
+                        <input  id="hent" type="datetime-local" required><br>
+                        <label for="hialm">Hora Início Almoço: </label>
+                        <input id="hialm" type="datetime-local" required><br>
+                        <label for="hfalm">Hora Final Almoço:  </label>
+                        <input id="hfalm" type="datetime-local" required><br>   
+                        <label for="hsai">Hora Saída:  </label>
+                        <input id="hsai" type="datetime-local" required>
+                    </div>
+                        
+                    <hr class="mb-4">
+                    
+                    <div class="custom-control custom-radio">
+                        <input id="justfalta" name="justfalt" type="radio" class="custom-control-input" required>
+                        <label class="custom-control-label" for="justfalta"> Justificar Falta <br> <br>
+                            <input type="hidden" name="MAX_FILE_SIZE" value="4194304">
+                            <input type="file" id='anexo'> <br> <br>
+                            <label for='obs'> Obs: </label>
+                            <input type='text' id='obs'>
+                            </div>
+                </div>
+                
+                <hr class='mb-4'>
+                <button class='btn btn-primary btn-lg btn-block' type='submit'>Enviar</button>
+            </form>
+        </div>
+        </div>
+        
+    </body>
+</html>

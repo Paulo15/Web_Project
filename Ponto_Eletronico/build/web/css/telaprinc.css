@@ -1,0 +1,79 @@
+html,
+body {
+	height: 100%;
+	background-color: #000000;
+	align-items: center;
+}
+
+h3,h6 {
+    
+    color: #FFFFFF !Important;
+    margin-top: 0,55% !important;
+    margin-left: 1% !important;
+    padding: 2px;
+}
+
+
+.site-header{
+	background-color: #A60000;
+	position: top;
+	height:8%;
+        width: 100% !important;
+}
+
+.site-header a {
+	color: #FFFFFF;
+	font-size: 150%;
+        padding-left: 0;
+        width:100%;
+}
+
+img{
+    width: 5%;
+    height: 5%;
+    
+}
+.btn {
+    margin-left: 87% !important;
+    margin-top: 0.55%;
+}
+
+.btn-login {
+	font-size: 0.9rem;
+	letter-spacing:0.05rem;
+	padding: 0.75rem 1rem;
+	border-radius: 2rem;
+	background-color: #A60000;
+	border-color:#FFFFFF;
+}
+
+.btn-primary:hover {
+	background-color: #FFFFFF;
+	color: #A60000;
+	border-color: #A60000;
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+	color: #FFFFFF !important;
+	background-color: #A60000 !important;
+	border-color: #A60000 !important;
+	box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .5) !IMPORTANT;
+}
+
+[class*="col-"]{
+    padding-top:1rem;
+    padding-bottom:1rem;
+    background-color: #A60000;
+    border: 1px solid #ffffff;
+    width: 30% !important;
+}
+
+.table{
+    color: #ffffff;
+    margin-bottom: 1rem;
+    width:60% !important;
+    margin-left: 1%;
+    border-bottom: #ffffff 1px;
+        
+}
