@@ -46,7 +46,7 @@ public class SolicitacaoServlet extends HttpServlet {
 
             Conexao con = new Conexao();
             
-            String nome = request.getParameter("");
+            /*String nome = request.getParameter("");
             String sobrenome = request.getParameter("");
             String tipo = request.getParameter("");
             String qtddias = request.getParameter("");
@@ -66,10 +66,10 @@ public class SolicitacaoServlet extends HttpServlet {
             Timestamp horaAlmocoEntradats = new Timestamp(((java.util.Date)sdf1.parse(horaAlmocoEntrada)).getTime());
             Timestamp horaAlmocoFimts = new Timestamp(((java.util.Date)sdf1.parse(horaAlmocoFim)).getTime());
             Timestamp horaSaidats = new Timestamp(((java.util.Date)sdf1.parse(horaSaida)).getTime());
-            
+            */
             
             Solicitacao sol = new Solicitacao();
-            sol.setNomeSolicitante(nome+sobrenome);
+            /*sol.setNomeSolicitante(nome+sobrenome);
             sol.setTipoSolicitacao(Integer.parseInt(tipo));
             sol.setQtddias(Long.parseLong(tipo));
             sol.setDataInicio(dataIniciots);
@@ -79,7 +79,18 @@ public class SolicitacaoServlet extends HttpServlet {
             sol.setHoraFimAlmoco(horaAlmocoFimts);
             sol.setHoraSaida(horaSaidats);
             sol.setObs(obs);
-            
+            */
+            sol.setNomeSolicitante("Felipe");
+            sol.setTipoSolicitacao(1);
+            sol.setEtapa(1L);
+            sol.setQtddias(2L);
+            sol.setDataInicio(null);
+            sol.setDataFim(null);
+            sol.setHoraEntrada(null);
+            sol.setHoraInicioAlmoco(null);
+            sol.setHoraFimAlmoco(null);
+            sol.setHoraSaida(null);
+            sol.setObs("Teste");
             SolicitacaoDAO dao = new SolicitacaoDAO();
             dao.createSol(sol);
            
