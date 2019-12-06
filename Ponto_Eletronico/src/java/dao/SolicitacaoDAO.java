@@ -21,17 +21,31 @@ import model.Solicitacao;
  */
 public class SolicitacaoDAO implements GenericDAO{
 
-    public void create(Solicitacao sol) {
+    public void createSol(Solicitacao sol) {
         Conexao con = new Conexao();
-        List<Solicitacao> result = null;
         String SQL = "INSERT INTO [dbo].[SOLICITACAO]\n" +
-                    " ([ID]\n" +
-                    " ,[TIPO_SOLICITACAO]\n" +
-                    " ,[NOME_SOLICITANTE]\n" +
-                    " ,[APROVADOR]\n" +
-                    " ,[ETAPA])\n" +
+                    "[dbo].[SOLICITACAO]\n" +
+                    "           ,[TIPO_SOLICITACAO]\n" +
+                    "           ,[NOME_SOLICITANTE]\n" +
+                    "           ,[APROVADOR]\n" +
+                    "           ,[ETAPA]\n" +
+                    "           ,[QTD_DIAS]\n" +
+                    "           ,[DATA_INICIO]\n" +
+                    "           ,[DATA_FIM]\n" +
+                    "           ,[HORA_ENTRADA]\n" +
+                    "           ,[HORA_INICIO_ALMOCO]\n" +
+                    "           ,[HORA_FIM_ALMOCO]\n" +
+                    "           ,[HORA_SAIDA]\n" +
+                    "           ,[OBS])\n" +
                     " VALUES\n" +
                     " (?\n" +
+                    " ,?\n" +
+                    " ,?\n" +
+                    " ,?\n" +
+                    " ,?\n" +
+                    " ,?\n" +
+                    " ,?\n" +
+                    " ,?\n" +
                     " ,?\n" +
                     " ,?\n" +
                     " ,?\n" +
@@ -42,7 +56,18 @@ public class SolicitacaoDAO implements GenericDAO{
                 stm.setString(2, sol.getNomeSolicitante());
                 stm.setString(3, sol.getNomeSolicitante());
                 stm.setLong(4, sol.getEtapa());
+                stm.setLong(5, sol.getQtddias());
+                stm.setTimestamp(6, sol.getDataInicio());
+                stm.setTimestamp(7, sol.getDataFim());
+                stm.setTimestamp(8, sol.getHoraEntrada());
+                stm.setTimestamp(9, sol.getHoraInicioAlmoco());
+                stm.setTimestamp(10, sol.getHoraFimAlmoco());
+                stm.setTimestamp(11, sol.getHoraSaida());
+                stm.setString(12, sol.getObs());
                 stm.executeUpdate();
+                
+                
+            stm.close();
             } catch (SQLException ex) {
             System.out.println("Deu ruim");
             ex.printStackTrace();
@@ -99,4 +124,5 @@ public class SolicitacaoDAO implements GenericDAO{
     public void create(Object o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
 }
