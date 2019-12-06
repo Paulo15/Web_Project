@@ -45,8 +45,7 @@ public class SolicitacaoServlet extends HttpServlet {
         String paginaDestino="/form.html?MAX_FILE_SIZE=4194304\"";
         try {
 
-            
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             SimpleDateFormat sdf1 = new SimpleDateFormat("HH:mm");
             
             
@@ -61,34 +60,46 @@ public class SolicitacaoServlet extends HttpServlet {
             String HFAlmoco = request.getParameter("txtHoraFinAlmoco");
             String HSaida = request.getParameter("txtHoraSaida");
             String Obs = request.getParameter("txtObs");
-                    
-            Timestamp dataInicio = new Timestamp(((java.util.Date)sdf.parse(DatIni)).getTime());
-            Timestamp dataFim = new Timestamp(((java.util.Date)sdf.parse(DatFin)).getTime());
-            
-            Timestamp HoraEn = new Timestamp(((java.util.Date)sdf1.parse(HEntrada)).getTime());
-            Timestamp HoraIAlm = new Timestamp(((java.util.Date)sdf1.parse(HIAlmoco)).getTime());
-            Timestamp HoraFAlm = new Timestamp(((java.util.Date)sdf1.parse(HFAlmoco)).getTime());
-            Timestamp HoraSaida = new Timestamp(((java.util.Date)sdf1.parse(HSaida)).getTime());
-            
             
             Solicitacao NewSolic = new Solicitacao();
             SolicitacaoDAO dao = new SolicitacaoDAO();
             
             NewSolic.setNomeSolicitante(Nome+Sobrenome);
             NewSolic.setQtddias(Long.parseLong(QtdDias));
+            NewSolic.setEtapa(1L);
+            
+            if(DatIni != "" && DatFin != ""){
+            Timestamp dataInicio = new Timestamp(((java.util.Date)sdf.parse(DatIni)).getTime());
+            Timestamp dataFim = new Timestamp(((java.util.Date)sdf.parse(DatFin)).getTime());
+            NewSolic.setTipoSolicitacao(1);
             NewSolic.setDataInicio(dataInicio);
             NewSolic.setDataFim(dataFim);
+            }
+            
+            if(HEntrada != "" && HIAlmoco != "" && HFAlmoco != "" && HSaida != ""){
+            Timestamp HoraEn = new Timestamp(((java.util.Date)sdf1.parse(HEntrada)).getTime());
+            Timestamp HoraIAlm = new Timestamp(((java.util.Date)sdf1.parse(HIAlmoco)).getTime());
+            Timestamp HoraFAlm = new Timestamp(((java.util.Date)sdf1.parse(HFAlmoco)).getTime());
+            Timestamp HoraSaida = new Timestamp(((java.util.Date)sdf1.parse(HSaida)).getTime());
+            NewSolic.setTipoSolicitacao(2);
             NewSolic.setHoraEntrada(HoraEn);
             NewSolic.setHoraInicioAlmoco(HoraIAlm);
             NewSolic.setHoraFimAlmoco(HoraFAlm);
             NewSolic.setHoraSaida(HoraSaida);
+            }
+            
+            if(NewSolic.getTipoSolicitacao() == null){
+                NewSolic.setTipoSolicitacao(3);
+            }
+
             NewSolic.setObs(Obs);
            
-           
-            
-            Solicitacao result = new Solicitacao();
-            result = (Solicitacao) dao.getUser(UserLogin);
+            Boolean result = dao.createSol(NewSolic);
+            if(result == true){
              paginaDestino = "/pagina_principal.html";
+            }else{
+                paginaDestino = "/erro.jsp";
+            }
              
         } catch (Exception ex) {
             System.out.println("Deu ruim");

@@ -21,11 +21,10 @@ import model.Solicitacao;
  */
 public class SolicitacaoDAO {
 
-    public void createSol(Solicitacao sol) {
+    public Boolean createSol(Solicitacao sol) {
         Conexao con = new Conexao();
         String SQL = "INSERT INTO [dbo].[SOLICITACAO]\n" +
-                    "[dbo].[SOLICITACAO]\n" +
-                    "           ,[TIPO_SOLICITACAO]\n" +
+                    "           ([TIPO_SOLICITACAO]\n" +
                     "           ,[NOME_SOLICITANTE]\n" +
                     "           ,[APROVADOR]\n" +
                     "           ,[ETAPA]\n" +
@@ -56,22 +55,64 @@ public class SolicitacaoDAO {
                 stm.setString(2, sol.getNomeSolicitante());
                 stm.setString(3, sol.getNomeSolicitante());
                 stm.setLong(4, sol.getEtapa());
+                if(sol.getQtddias() == null){
+                    stm.setNull(5, java.sql.Types.INTEGER);
+                }else{
                 stm.setLong(5, sol.getQtddias());
+                }
+                
+                if(sol.getDataInicio() == null){
+                    stm.setNull(6, java.sql.Types.DATE);
+                }else{
                 stm.setTimestamp(6, sol.getDataInicio());
+                }
+                
+                if(sol.getDataFim() == null){
+                    stm.setNull(7, java.sql.Types.DATE);
+                }else{
                 stm.setTimestamp(7, sol.getDataFim());
+                }
+                
+                if(sol.getHoraEntrada() == null){
+                    stm.setNull(8, java.sql.Types.DATE);
+                }else{
                 stm.setTimestamp(8, sol.getHoraEntrada());
+                }
+                
+                if(sol.getHoraInicioAlmoco() == null){
+                    stm.setNull(9, java.sql.Types.DATE);
+                }else{
                 stm.setTimestamp(9, sol.getHoraInicioAlmoco());
+                }
+                
+                if(sol.getHoraFimAlmoco() == null){
+                    stm.setNull(10, java.sql.Types.DATE);
+                }else{
                 stm.setTimestamp(10, sol.getHoraFimAlmoco());
+                }
+                
+                if(sol.getHoraSaida() == null){
+                    stm.setNull(11, java.sql.Types.DATE);
+                }else{
                 stm.setTimestamp(11, sol.getHoraSaida());
-                stm.setString(12, sol.getObs());
+                }
+                
+                if(sol.getObs() == null){
+                    stm.setNull(12, java.sql.Types.VARCHAR);
+                }else{
+                    stm.setString(12, sol.getObs());
+                }
+                
                 stm.executeUpdate();
                 
                 
             stm.close();
+            return true;
             } catch (SQLException ex) {
             System.out.println("Deu ruim");
             ex.printStackTrace();
         }
+            return false;
     }
 
     public void delete(Object o) {
