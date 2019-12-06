@@ -12,6 +12,7 @@ import java.sql.Timestamp;
  * @author Usuario
  */
 public class Solicitacao {
+    Integer id;
     Integer tipoSolicitacao;
     String nomeSolicitante;
     String Aprovador;
@@ -24,7 +25,16 @@ public class Solicitacao {
     Timestamp horaFimAlmoco;
     Timestamp horaSaida;
     String obs;
+    Boolean aprovado;
     
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public Integer getTipoSolicitacao() {
         return tipoSolicitacao;
     }
@@ -119,6 +129,14 @@ public class Solicitacao {
 
     public void setObs(String obs) {
         this.obs = obs;
+    }
+    
+    public Boolean getAprovado() {
+        return aprovado;
+    }
+
+    public void setAprovado(Boolean aprovado) {
+        this.aprovado = aprovado;
     }
 
     

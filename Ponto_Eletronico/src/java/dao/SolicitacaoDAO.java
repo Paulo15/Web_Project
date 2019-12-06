@@ -19,7 +19,7 @@ import model.Solicitacao;
  *
  * @author felipe.correia
  */
-public class SolicitacaoDAO implements GenericDAO{
+public class SolicitacaoDAO {
 
     public void createSol(Solicitacao sol) {
         Conexao con = new Conexao();
@@ -74,14 +74,29 @@ public class SolicitacaoDAO implements GenericDAO{
         }
     }
 
-    @Override
     public void delete(Object o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public void update(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    public void updateAprovador(Solicitacao sol) {
+        Conexao con = new Conexao();
+        String SQL = "UPDATE [dbo].[SOLICITACAO]\n" +
+                    "   SET [APROVADO] = ?\n" +
+                    " WHERE ID = ?";
+            try (PreparedStatement stm = con.getSqlConnection().prepareStatement(SQL)) {
+                
+                stm.setBoolean(1, sol.getAprovado());
+                stm.setLong(2, sol.getId());
+                
+                stm.executeUpdate();
+                
+                
+            stm.close();
+            } catch (SQLException ex) {
+            System.out.println("Deu ruim");
+            ex.printStackTrace();
+        }
     }
 
     public List<Solicitacao> getList() {
@@ -113,16 +128,6 @@ public class SolicitacaoDAO implements GenericDAO{
         }
         
         return result;
-    }
-
-    @Override
-    public List<Object> read() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void create(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

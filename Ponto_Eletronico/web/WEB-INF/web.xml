@@ -8,13 +8,17 @@
         <servlet-name>ConsultaServlet</servlet-name>
         <servlet-class>logic.ConsultaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SolicitacaoServlet</servlet-name>
+        <servlet-class>logic.SolicitacaoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ConsultaServlet</servlet-name>
-        <url-pattern>/ConsultaServlet</url-pattern>
+        <servlet-name>SolicitacaoServlet</servlet-name>
+        <url-pattern>/SolicitacaoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
