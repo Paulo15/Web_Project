@@ -36,18 +36,18 @@ and open the template in the editor.
         <div class='container'>
         <div class="col-md-8 order-md-1 py-2 ">
             <h4 class="mb-3">Dados Pessoais</h4>
-            <form class="needs-validation" novalidate>
+            <form class="needs-validation" novalidate action="LoginController" method="POST">
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="primeiroNome">Nome</label>
-                        <input type="text" class="form-control" id="primeiroNome" placeholder="" value="" required>
+                        <input type="text" class="form-control" id="primeiroNome" placeholder="" value="" name='txtNome' required>
                         <div class="invalid-feedback">
                             É obrigatório inserir um nome válido. 
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="sobrenome">Sobrenome</label>
-                        <input type="text" class="form-control" id="sobrenome" placeholder="" value="" required>
+                        <input type="text" class="form-control" id="sobrenome" placeholder="" value="" name=txtSobrenome required>
                         <div class="invalid-feedback">
                             É obrigatório inser um sobrenome válido
                         </div>
@@ -64,11 +64,11 @@ and open the template in the editor.
                         <label class="custom-control-label"for="ferias">Solicitação Férias</label>
                         <hr class="col-md-8 order-md-1">
                         <label for="qtddias">Qtd. Dias</label>
-                        <input  id="qtddias" type="number" required>
+                        <input  id="qtddias" type="number" required name='txtQtdDias'>
                         <label for="datainicial">Data Início </label>
-                        <input id="datainicial" type="date" required>
+                        <input id="datainicial" type="date" name=txtDatIni required>
                         <label for="datafinal">Data Final </label>
-                        <input id="datafinal" type="date" required>
+                        <input id="datafinal" type="date" name='txtDatFin' required>
                     </div>
                     
                     <hr class="mb-4">
@@ -77,13 +77,13 @@ and open the template in the editor.
                         <label class="custom-control-label" for="ponto">Ajuste Ponto Eletrônico</label>
                         <hr class="col-md-8 order-md-1">
                         <label for="hent">Hora Entrada: </label>
-                        <input  id="hent" type="datetime-local" required><br>
+                        <input  id="hent" type="datetime-local" name='txtHoraEntrada'required><br>
                         <label for="hialm">Hora Início Almoço: </label>
-                        <input id="hialm" type="datetime-local" required><br>
+                        <input id="hialm" type="datetime-local" name='txtHoraIniAlmoco' required><br>
                         <label for="hfalm">Hora Final Almoço:  </label>
-                        <input id="hfalm" type="datetime-local" required><br>   
+                        <input id="hfalm" type="datetime-local" name='txtHoraFinAlmoco' required><br>   
                         <label for="hsai">Hora Saída:  </label>
-                        <input id="hsai" type="datetime-local" required>
+                        <input id="hsai" type="datetime-local" name='txtHoraSaida' required>
                     </div>
                         
                     <hr class="mb-4">
@@ -94,7 +94,7 @@ and open the template in the editor.
                             <input type="hidden" name="MAX_FILE_SIZE" value="4194304">
                             <input type="file" id='anexo'> <br> <br>
                             <label for='obs'> Obs: </label>
-                            <input type='text' id='obs'>
+                            <input type='text' id='obs' name='obs'>
                             </div>
                 </div>
                 
@@ -103,6 +103,37 @@ and open the template in the editor.
             </form>
         </div>
         </div>
-        
-    </body>
+   
+            
+<!-- Principal JavaScript do Bootstrap
+    ================================================== -->
+    <!-- Foi colocado no final para a página carregar mais rápido -->
+    <script src="js/jquery-3.3.1.slim.min.js" ></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="js/vendor/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vendor/holder.min.js"></script>
+    <script>
+      // Exemplo de JavaScript para desativar o envio do formulário, se tiver algum campo inválido.
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Selecione todos os campos que nós queremos aplicar estilos Bootstrap de validação customizados.
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Faz um loop neles e previne envio
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+  </body>
 </html>

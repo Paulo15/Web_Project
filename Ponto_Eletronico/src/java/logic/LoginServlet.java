@@ -40,6 +40,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String paginaDestino="/index.html";
         try {
 
             Conexao con = new Conexao();
@@ -53,11 +54,15 @@ public class LoginServlet extends HttpServlet {
             UserLogin.setPassword(Senha);
             User result = new User();
             result = (User) dao.getUser(UserLogin);
-            
-            String Teste = "teste";
+             paginaDestino = "/pagina_principal.html";
+             
         } catch (Exception ex) {
             System.out.println("Deu ruim");
             ex.printStackTrace();
+        }
+            finally {
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(paginaDestino);
+            dispatcher.forward(request, response);
         }
     }
 }
