@@ -21,7 +21,7 @@ import model.Solicitacao;
  */
 public class SolicitacaoDAO {
 
-    public void createSol(Solicitacao sol) {
+    public Boolean createSol(Solicitacao sol) {
         Conexao con = new Conexao();
         String SQL = "INSERT INTO [dbo].[SOLICITACAO]\n" +
                     "           ([TIPO_SOLICITACAO]\n" +
@@ -107,10 +107,12 @@ public class SolicitacaoDAO {
                 
                 
             stm.close();
+            return true;
             } catch (SQLException ex) {
             System.out.println("Deu ruim");
             ex.printStackTrace();
         }
+            return false;
     }
 
     public void delete(Object o) {

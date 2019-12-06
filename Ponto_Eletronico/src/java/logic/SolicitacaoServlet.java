@@ -39,65 +39,75 @@ public class SolicitacaoServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String paginaDestino="/form.html?MAX_FILE_SIZE=4194304\"";
         try {
 
-            Conexao con = new Conexao();
-            
-            /*String nome = request.getParameter("");
-            String sobrenome = request.getParameter("");
-            String tipo = request.getParameter("");
-            String qtddias = request.getParameter("");
-            String dataInicio = request.getParameter("");
-            String dataFim = request.getParameter("");
-            String horaEntrada = request.getParameter("");
-            String horaAlmocoEntrada = request.getParameter("");
-            String horaAlmocoFim = request.getParameter("");
-            String horaSaida = request.getParameter("");
-            String obs = request.getParameter("");
-            
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             SimpleDateFormat sdf1 = new SimpleDateFormat("HH:mm");
-            Timestamp dataIniciots = new Timestamp(((java.util.Date)sdf.parse(dataInicio)).getTime());
-            Timestamp dataFimts = new Timestamp(((java.util.Date)sdf.parse(dataFim)).getTime());
-            Timestamp horaEntradats = new Timestamp(((java.util.Date)sdf1.parse(horaEntrada)).getTime());
-            Timestamp horaAlmocoEntradats = new Timestamp(((java.util.Date)sdf1.parse(horaAlmocoEntrada)).getTime());
-            Timestamp horaAlmocoFimts = new Timestamp(((java.util.Date)sdf1.parse(horaAlmocoFim)).getTime());
-            Timestamp horaSaidats = new Timestamp(((java.util.Date)sdf1.parse(horaSaida)).getTime());
-            */
             
-            Solicitacao sol = new Solicitacao();
-            /*sol.setNomeSolicitante(nome+sobrenome);
-            sol.setTipoSolicitacao(Integer.parseInt(tipo));
-            sol.setQtddias(Long.parseLong(tipo));
-            sol.setDataInicio(dataIniciots);
-            sol.setDataFim(dataFimts);
-            sol.setHoraEntrada(horaEntradats);
-            sol.setHoraInicioAlmoco(horaAlmocoEntradats);
-            sol.setHoraFimAlmoco(horaAlmocoFimts);
-            sol.setHoraSaida(horaSaidats);
-            sol.setObs(obs);
-            */
-            sol.setNomeSolicitante("Felipe");
-            sol.setTipoSolicitacao(1);
-            sol.setEtapa(1L);
-            sol.setQtddias(2L);
-            sol.setDataInicio(null);
-            sol.setDataFim(null);
-            sol.setHoraEntrada(null);
-            sol.setHoraInicioAlmoco(null);
-            sol.setHoraFimAlmoco(null);
-            sol.setHoraSaida(null);
-            sol.setObs("Teste");
+            
+            Conexao con = new Conexao();
+            String Nome = request.getParameter("txtNome");
+            String Sobrenome = request.getParameter("txtSobrenome");
+            String QtdDias = request.getParameter("txtQtdDias");
+            String DatIni = request.getParameter("txtDatIni");
+            String DatFin = request.getParameter("txtDatFin");
+            String HEntrada = request.getParameter("txtHoraEntrada");
+            String HIAlmoco = request.getParameter("txtHoraIniAlmoco");
+            String HFAlmoco = request.getParameter("txtHoraFinAlmoco");
+            String HSaida = request.getParameter("txtHoraSaida");
+            String Obs = request.getParameter("txtObs");
+            
+            Solicitacao NewSolic = new Solicitacao();
             SolicitacaoDAO dao = new SolicitacaoDAO();
-            dao.createSol(sol);
+            
+            NewSolic.setNomeSolicitante(Nome+Sobrenome);
+            NewSolic.setQtddias(Long.parseLong(QtdDias));
+            NewSolic.setEtapa(1L);
+            
+            if(DatIni != "" && DatFin != ""){
+            Timestamp dataInicio = new Timestamp(((java.util.Date)sdf.parse(DatIni)).getTime());
+            Timestamp dataFim = new Timestamp(((java.util.Date)sdf.parse(DatFin)).getTime());
+            NewSolic.setTipoSolicitacao(1);
+            NewSolic.setDataInicio(dataInicio);
+            NewSolic.setDataFim(dataFim);
+            }
+            
+            if(HEntrada != "" && HIAlmoco != "" && HFAlmoco != "" && HSaida != ""){
+            Timestamp HoraEn = new Timestamp(((java.util.Date)sdf1.parse(HEntrada)).getTime());
+            Timestamp HoraIAlm = new Timestamp(((java.util.Date)sdf1.parse(HIAlmoco)).getTime());
+            Timestamp HoraFAlm = new Timestamp(((java.util.Date)sdf1.parse(HFAlmoco)).getTime());
+            Timestamp HoraSaida = new Timestamp(((java.util.Date)sdf1.parse(HSaida)).getTime());
+            NewSolic.setTipoSolicitacao(2);
+            NewSolic.setHoraEntrada(HoraEn);
+            NewSolic.setHoraInicioAlmoco(HoraIAlm);
+            NewSolic.setHoraFimAlmoco(HoraFAlm);
+            NewSolic.setHoraSaida(HoraSaida);
+            }
+            
+            if(NewSolic.getTipoSolicitacao() == null){
+                NewSolic.setTipoSolicitacao(3);
+            }
+
+            NewSolic.setObs(Obs);
            
-            String Teste = "teste";
+            Boolean result = dao.createSol(NewSolic);
+            if(result == true){
+             paginaDestino = "/pagina_principal.html";
+            }else{
+                paginaDestino = "/erro.jsp";
+            }
+             
         } catch (Exception ex) {
             System.out.println("Deu ruim");
             ex.printStackTrace();
+        }
+            finally {
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(paginaDestino);
+            dispatcher.forward(request, response);
         }
     }
 }
