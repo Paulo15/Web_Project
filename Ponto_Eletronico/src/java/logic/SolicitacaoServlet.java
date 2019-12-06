@@ -13,6 +13,8 @@ import model.Solicitacao;
 import model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -43,17 +45,44 @@ public class SolicitacaoServlet extends HttpServlet {
         try {
 
             Conexao con = new Conexao();
-            String Usuario = request.getParameter("txtLogin");
-            String Senha = request.getParameter("txtSenha");
             
-            User UserLogin = new User();
-            UserDAO dao = new UserDAO();
+            String nome = request.getParameter("");
+            String sobrenome = request.getParameter("");
+            String tipo = request.getParameter("");
+            String qtddias = request.getParameter("");
+            String dataInicio = request.getParameter("");
+            String dataFim = request.getParameter("");
+            String horaEntrada = request.getParameter("");
+            String horaAlmocoEntrada = request.getParameter("");
+            String horaAlmocoFim = request.getParameter("");
+            String horaSaida = request.getParameter("");
+            String obs = request.getParameter("");
             
-            UserLogin.setLogin(Usuario);
-            UserLogin.setPassword(Senha);
-            User result = new User();
-            result = (User) dao.getUser(UserLogin);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat sdf1 = new SimpleDateFormat("HH:mm");
+            Timestamp dataIniciots = new Timestamp(((java.util.Date)sdf.parse(dataInicio)).getTime());
+            Timestamp dataFimts = new Timestamp(((java.util.Date)sdf.parse(dataFim)).getTime());
+            Timestamp horaEntradats = new Timestamp(((java.util.Date)sdf1.parse(horaEntrada)).getTime());
+            Timestamp horaAlmocoEntradats = new Timestamp(((java.util.Date)sdf1.parse(horaAlmocoEntrada)).getTime());
+            Timestamp horaAlmocoFimts = new Timestamp(((java.util.Date)sdf1.parse(horaAlmocoFim)).getTime());
+            Timestamp horaSaidats = new Timestamp(((java.util.Date)sdf1.parse(horaSaida)).getTime());
             
+            
+            Solicitacao sol = new Solicitacao();
+            sol.setNomeSolicitante(nome+sobrenome);
+            sol.setTipoSolicitacao(Integer.parseInt(tipo));
+            sol.setQtddias(Long.parseLong(tipo));
+            sol.setDataInicio(dataIniciots);
+            sol.setDataFim(dataFimts);
+            sol.setHoraEntrada(horaEntradats);
+            sol.setHoraInicioAlmoco(horaAlmocoEntradats);
+            sol.setHoraFimAlmoco(horaAlmocoFimts);
+            sol.setHoraSaida(horaSaidats);
+            sol.setObs(obs);
+            
+            SolicitacaoDAO dao = new SolicitacaoDAO();
+            dao.createSol(sol);
+           
             String Teste = "teste";
         } catch (Exception ex) {
             System.out.println("Deu ruim");
