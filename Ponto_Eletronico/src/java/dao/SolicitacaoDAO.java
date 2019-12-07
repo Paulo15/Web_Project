@@ -143,12 +143,13 @@ public class SolicitacaoDAO {
     public List<Solicitacao> getList() {
         Conexao con = new Conexao();
         List<Solicitacao> result = null;
-        String SQL = "SELECT [ID]\n" +
+        String SQL = "SELECT TOP 5 [ID]\n" +
                     "      ,[TIPO_SOLICITACAO]\n" +
                     "      ,[NOME_SOLICITANTE]\n" +
                     "      ,[APROVADOR]\n" +
                     "      ,[ETAPA]\n" +
-                    "  FROM [dbo].[SOLICITACAO]\n";
+                    "  FROM [dbo].[SOLICITACAO]\n"+
+                    " ORDER BY ID DESC";
             try (PreparedStatement stm = con.getSqlConnection().prepareStatement(SQL)) {
             ResultSet rs = stm.executeQuery();
             result = null;

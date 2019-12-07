@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -110,4 +111,26 @@ public class SolicitacaoServlet extends HttpServlet {
             dispatcher.forward(request, response);
         }
     }
+    
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pagina_principal.jsp");
+            /* business logic */
+            /*DataSource ds = new DataSource();
+            GenericDAO dao = new ProdutoDAO(ds);
+            List<Object> lista = dao.read();
+            ds.getConnection().close();
+            System.out.println("Tamanho da lista = " + lista.size());
+            request.setAttribute("Lista", lista);
+
+            dispatcher.forward(request, response);
+                    */
+        } catch (Exception ex) {
+
+        }
+
+    }
+
 }
