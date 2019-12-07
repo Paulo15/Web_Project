@@ -36,18 +36,18 @@ and open the template in the editor.
         <div class='container'>
         <div class="col-md-8 order-md-1 py-2 ">
             <h4 class="mb-3">Dados Pessoais</h4>
-            <form class="needs-validation" novalidate action="LoginController" method="POST">
+            <form class="needs-validation" novalidate action="SolicitacaoServlet" method="POST">
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="primeiroNome">Nome</label>
-                        <input type="text" class="form-control" id="primeiroNome" placeholder="" value="" name='txtNome' required>
+                        <input type="text" class="form-control" id="primeiroNome" placeholder="" value="" name='txtNome' >
                         <div class="invalid-feedback">
                             É obrigatório inserir um nome válido. 
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="sobrenome">Sobrenome</label>
-                        <input type="text" class="form-control" id="sobrenome" placeholder="" value="" name=txtSobrenome required>
+                        <input type="text" class="form-control" id="sobrenome" placeholder="" value="" name=txtSobrenome >
                         <div class="invalid-feedback">
                             É obrigatório inser um sobrenome válido
                         </div>
@@ -60,36 +60,36 @@ and open the template in the editor.
                 
                 <div class="d-block my-3">  
                     <div class="custom-control custom-radio">
-                        <input id="ferias" name="solferias" type="radio" class="custom-control-input" required>
+                        <input id="ferias" name="solferias" type="radio" class="custom-control-input" >
                         <label class="custom-control-label"for="ferias">Solicitação Férias</label>
                         <hr class="col-md-8 order-md-1">
                         <label for="qtddias">Qtd. Dias</label>
-                        <input  id="qtddias" type="number" required name='txtQtdDias'>
+                        <input  id="qtddias" type="number" name='txtQtdDias'>
                         <label for="datainicial">Data Início </label>
-                        <input id="datainicial" type="date" name=txtDatIni required>
+                        <input id="datainicial" type="date" name=txtDatIni>
                         <label for="datafinal">Data Final </label>
-                        <input id="datafinal" type="date" name='txtDatFin' required>
+                        <input id="datafinal" type="date" name='txtDatFin'>
                     </div>
                     
                     <hr class="mb-4">
                      <div class="custom-control custom-radio">
-                        <input id="ponto" name="solponto" type="radio" class="custom-control-input" required>
+                        <input id="ponto" name="solponto" type="radio" class="custom-control-input">
                         <label class="custom-control-label" for="ponto">Ajuste Ponto Eletrônico</label>
                         <hr class="col-md-8 order-md-1">
                         <label for="hent">Hora Entrada: </label>
-                        <input  id="hent" type="datetime-local" name='txtHoraEntrada'required><br>
+                        <input  id="hent" type="datetime-local" name='txtHoraEntrada'><br>
                         <label for="hialm">Hora Início Almoço: </label>
-                        <input id="hialm" type="datetime-local" name='txtHoraIniAlmoco' required><br>
+                        <input id="hialm" type="datetime-local" name='txtHoraIniAlmoco' ><br>
                         <label for="hfalm">Hora Final Almoço:  </label>
-                        <input id="hfalm" type="datetime-local" name='txtHoraFinAlmoco' required><br>   
+                        <input id="hfalm" type="datetime-local" name='txtHoraFinAlmoco' ><br>   
                         <label for="hsai">Hora Saída:  </label>
-                        <input id="hsai" type="datetime-local" name='txtHoraSaida' required>
+                        <input id="hsai" type="datetime-local" name='txtHoraSaida' >
                     </div>
                         
                     <hr class="mb-4">
                     
                     <div class="custom-control custom-radio">
-                        <input id="justfalta" name="justfalt" type="radio" class="custom-control-input" required>
+                        <input id="justfalta" name="justfalt" type="radio" class="custom-control-input" >
                         <label class="custom-control-label" for="justfalta"> Justificar Falta <br> <br>
                             <input type="hidden" name="MAX_FILE_SIZE" value="4194304">
                             <input type="file" id='anexo'> <br> <br>

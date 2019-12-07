@@ -1,3 +1,10 @@
+<%-- 
+    Document   : pagina_principal
+    Created on : 06/12/2019, 20:51:33
+    Author     : Raquel
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
