@@ -124,11 +124,13 @@ public class SolicitacaoDAO {
         Conexao con = new Conexao();
         String SQL = "UPDATE [dbo].[SOLICITACAO]\n" +
                     "   SET [APROVADO] = ?\n" +
+                    "   ,[ETAPA] =  ?"+
                     " WHERE ID = ?";
             try (PreparedStatement stm = con.getSqlConnection().prepareStatement(SQL)) {
                 
                 stm.setBoolean(1, sol.getAprovado());
-                stm.setLong(2, sol.getId());
+                stm.setLong(2, sol.getEtapa());
+                stm.setInt(3, sol.getId());
                 
                 stm.executeUpdate();
                 
@@ -156,6 +158,7 @@ public class SolicitacaoDAO {
             result = new ArrayList<>();
             while (rs.next()){
                 Solicitacao sol = new Solicitacao();
+                sol.setId(rs.getInt("ID"));
                 sol.setNomeSolicitante(rs.getString("NOME_SOLICITANTE"));
                 sol.setTipoSolicitacao(rs.getInt("TIPO_SOLICITACAO"));
                 sol.setEtapa(rs.getLong("ETAPA"));

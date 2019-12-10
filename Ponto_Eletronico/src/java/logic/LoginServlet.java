@@ -13,6 +13,8 @@ import model.Solicitacao;
 import model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -54,7 +56,16 @@ public class LoginServlet extends HttpServlet {
             UserLogin.setPassword(Senha);
             User result = new User();
             result = (User) dao.getUser(UserLogin);
-             paginaDestino = "/pagina_principal.html";
+            
+            
+            if(!result.getName().isEmpty()){
+                SolicitacaoDAO sol = new SolicitacaoDAO();
+                List<Solicitacao> listSol;
+                listSol = sol.getList();
+                request.setAttribute("listSol", listSol);
+                paginaDestino = "/pagina_principal.jsp";
+            }
+            
              
         } catch (Exception ex) {
             System.out.println("Deu ruim");

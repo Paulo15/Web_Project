@@ -66,10 +66,10 @@ public class SolicitacaoServlet extends HttpServlet {
             SolicitacaoDAO dao = new SolicitacaoDAO();
             
             NewSolic.setNomeSolicitante(Nome+Sobrenome);
-            NewSolic.setQtddias(Long.parseLong(QtdDias));
             NewSolic.setEtapa(1L);
             
             if(DatIni != "" && DatFin != ""){
+            NewSolic.setQtddias(Long.parseLong(QtdDias));
             Timestamp dataInicio = new Timestamp(((java.util.Date)sdf.parse(DatIni)).getTime());
             Timestamp dataFim = new Timestamp(((java.util.Date)sdf.parse(DatFin)).getTime());
             NewSolic.setTipoSolicitacao(1);
@@ -113,10 +113,26 @@ public class SolicitacaoServlet extends HttpServlet {
     }
     
     
+    
+    
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String paginaDestino = null;
         try {
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/pagina_principal.jsp");
+            
+            Conexao con = new Conexao();
+            String Id = request.getParameter("id");
+            String Aprovado = request.getParameter("Aprovado");
+            
+            Solicitacao sol = new Solicitacao();
+            sol.setId(Integer.parseInt(Id));
+            sol.setEtapa(2L);
+            sol.setAprovado(Boolean.parseBoolean(Aprovado));
+            
+            SolicitacaoDAO soldao = new SolicitacaoDAO();
+            soldao.updateAprovador(sol);
+            
+            //paginaDestino = "/pagina_principal.jsp";
             /* business logic */
             /*DataSource ds = new DataSource();
             GenericDAO dao = new ProdutoDAO(ds);
@@ -124,13 +140,16 @@ public class SolicitacaoServlet extends HttpServlet {
             ds.getConnection().close();
             System.out.println("Tamanho da lista = " + lista.size());
             request.setAttribute("Lista", lista);
-
-            dispatcher.forward(request, response);
-                    */
+*/
+           // dispatcher.forward(request, response);
+                    
         } catch (Exception ex) {
 
-        }
-
+        }finally {
+            /*RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(paginaDestino);
+            dispatcher.forward(request, response);
+*/
+    }
     }
 
 }

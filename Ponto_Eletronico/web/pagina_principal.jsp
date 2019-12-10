@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<jsp:useBean id="listSol" type="java.util.List" scope="request"/>
+
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -51,33 +54,46 @@ and open the template in the editor.
                     <td class="col-4">Status Solicitação</td>
                 </tr>
                 
+                <c:forEach var="solicitacao" items="${listSol}">
                 <tr>
-                    <td> ${Carrinho.total} </td>
-                    <td> ${Carrinho.total} </td>
-                    <td> ${Carrinho.total} </td>
-                                        
-                </tr>
-                
-                <tr>
-                    <td> ${Carrinho.total} </td>
-                    <td> ${Carrinho.total} </td>
-                    <td> ${Carrinho.total} </td>
+                    <td> ${solicitacao.id}  </td>
                     
-                </tr>
-                
-                <tr>
-                    <td> ${Carrinho.total} </td>
-                    <td> ${Carrinho.total} </td>
-                    <td> ${Carrinho.total} </td>
+                    <c:choose>
+                        <c:when test = "${solicitacao.tipoSolicitacao == 1}">
+                            <c:set var="tipoSol" value="Férias"/>	
+                        </c:when>
+                        <c:when test = "${solicitacao.tipoSolicitacao == 2}">
+                            <c:set var="tipoSol" value="Ajuste de Ponto"/>	
+                        </c:when>
+                        <c:when test = "${solicitacao.tipoSolicitacao == 3}">
+                            <c:set var="tipoSol" value="Justificar Falta"/>	
+                        </c:when>
+         
+         
+                        <c:otherwise></c:otherwise>
+                    </c:choose>
+                    <td> ${tipoSol}  </td>
                     
-                </tr>
-                
-                <tr>
-                    <td> ${Carrinho.total} </td>
-                    <td> ${Carrinho.total} </td>
-                    <td> ${Carrinho.total} </td>
+                    <c:choose>
+                        <c:when test = "${solicitacao.etapa == 1}">
+                            <c:set var="etapaSol" value="Aguardando Aprovação"/>	
+                        </c:when>
+                        <c:when test = "${solicitacao.etapa == 2}">
+                            <c:set var="etapaSol" value="Finalizado"/>	
+                        </c:when>
                     
+                        <c:otherwise></c:otherwise>
+                    </c:choose>
+                    
+                    
+                    
+                    
+                    <td> ${etapaSol} </td>
+                    <td>     <a href="SolicitacaoServlet?id=${solicitacao.id}?Aprovado=1">Aprovar</a>
+                            <a href="SolicitacaoServlet?id=${solicitacao.id}?Aprovado=0">Reprovar</a></td>
                 </tr>
+                </c:forEach>
+                
                 
                 </tbody>
         </table>
